@@ -7,4 +7,6 @@ export class Config {
   public readonly prefix = config.DISCORD_BOT_PREFIX;
   public readonly debug = config.DISCORD_BOT_DEBUG;
   public readonly version = pkg.version;
+  public readonly node = process.version;
+  public readonly logName = config.DISCORD_BOT_LOG_NAME;
 }

@@ -1,38 +1,40 @@
 import Discord = require("discord.js");
 import { Config } from "./lib/config";
-import { debug } from "./lib/debug";
-const client = new Discord.Client();
-const config = new Config();
+import { logger } from "./lib/logger";
+import { helpMessage } from "./lib/helpMessage";
+export const client = new Discord.Client();
+export const config = new Config();
 
 client.once("ready", () => {
-  debug("Ready!");
-  debug(`Code base: ${config.version}`);
-  debug(`Node V: ${process.version}`);
+  logger({message: "Ready!", type: 'info'});
+  logger({message: `Code base: ${config.version}`, type: "debug"});
+  logger({message: `Node V: ${config.node}`});
+  logger({message: "Error test", type: 'error'});
+  logger({message: "Error test 2", type: 'error'});
 });
 
 client.on("message", async (message) => {
   // Ignore messages from bot
   if (message.author.bot) return;
-  // Help message
+  // mention bot Help message
   if (
-    message.content === `${config.prefix} h` ||
-    message.content === `${config.prefix} help` ||
     message.mentions.has(client.user.id)
   ) {
-    try {
-      await message.channel.send(`I can only do the following:
-\`${config.prefix} h\`,\`${config.prefix} help\`, <@${client.user.id}> to display this help message.
-
-V:${config.version}`);
-    } catch (error) {
-      debug(error, "error");
-    }
+    await helpMessage(message);
   }
   // Ignore anything else without proper prefix
   if(!message.content.startsWith(config.prefix))return;
   const args = message.content.slice(config.prefix.length).trim().split(/ +/);
   const command = args.shift().toLowerCase();
 
+  switch (command) {
+    case 'h' || 'help':
+      await helpMessage(message);
+      break;
+    default:
+      await helpMessage(message);
+      break;
+  }
 });
 
 client.login(config.token);
