@@ -24,7 +24,7 @@
         },
         {
             "type": "node",
-            "name": "Launch The Mothership",
+            "name": "Build bot",
             "program": "${workspaceFolder}/src/main.ts",
             "request": "launch",
             "skipFiles": [
@@ -33,7 +33,21 @@
             "outputCapture": "std",
             "preLaunchTask": "tsc: build - tsconfig.json",
             "outFiles": [
-                "${workspaceFolder}/msb-compile/**/*.js"
+                "${workspaceFolder}/build/**/*.js"
+            ]
+        },
+        {
+            "type": "node",
+            "name": "Debug bot",
+            "program": "${workspaceFolder}/src/main.ts",
+            "request": "launch",
+            "skipFiles": [
+                "<node_internals>/**"
+            ],
+            "outputCapture": "std",
+            "preLaunchTask": "tsc: build - tsconfig.json",
+            "outFiles": [
+                "${workspaceFolder}/debug/**/*.js"
             ]
         }
     ]

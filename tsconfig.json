@@ -2,7 +2,8 @@
     "compilerOptions": {
       "target": "ES6",
       "module": "commonjs",
-      "outDir": "msb-compile",
+      "outDir": "build",
+      "experimentalDecorators": true,
       "sourceMap": true,
       "resolveJsonModule": true
     }

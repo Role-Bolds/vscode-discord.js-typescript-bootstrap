@@ -8,6 +8,7 @@
   },
   "dependencies": {
     "@types/node": "^14.11.8",
+    "command.ts": "^2.1.0",
     "discord.js": "^12.3.1",
     "log4js": "^6.3.0"
   },
