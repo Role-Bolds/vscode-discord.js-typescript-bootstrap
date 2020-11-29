@@ -1,5 +1,5 @@
-import { Config } from "./lib/Config";
-import { logger } from './lib/Logger';
+import { Config } from "./lib/config";
+import { logger } from './lib/logger';
 import { Client } from 'command.ts';
 import { join } from "path";
 export const config = new Config();

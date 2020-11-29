@@ -1,6 +1,6 @@
 import { Message } from "discord.js";
 import { Events } from "command.ts";
-import { client, config } from "../Main";
+import { client, config } from "../main";
 
 @Events.Message
 class MessageEvent

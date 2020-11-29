@@ -1,7 +1,6 @@
 import "mocha";
 import * as chai from "chai";
-import { Config } from "./Config";
-import { assert } from "console";
+import { Config } from "./config";
 
 
 chai.should();

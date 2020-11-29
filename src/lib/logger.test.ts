@@ -1,6 +1,6 @@
 import * as chai from 'chai';
 import 'mocha';
-import { logger } from './Logger';
+import { logger } from './logger';
 const expect = chai.expect;
 describe('-- Debug output', () => {
   describe('Debug message function', () => {

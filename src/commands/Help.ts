@@ -1,5 +1,5 @@
 import { Context, Commands } from 'command.ts';
-import { config } from "../Main";
+import { config } from "../main";
 
 @Commands.Group("Help commands")
 class Help {

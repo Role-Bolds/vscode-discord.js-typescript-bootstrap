@@ -1,5 +1,5 @@
 import { Events } from "command.ts";
-import { logger } from '../lib/Logger';
+import { logger } from '../lib/logger';
 import { config } from "../main";
 
 @Events.Ready
