@@ -6,7 +6,4 @@ install:
   - cp ./secrets/sample-config.json ./secrets/config.json
 jobs:
   include:
-    - script: COVERALLS_FLAG_NAME=coverage nyc npm test && nyc report --reporter=text-lcov | coveralls
     - script: tsc -p ./tsconfig.json
-notifications:
-  webhooks: https://coveralls.io/webhook
