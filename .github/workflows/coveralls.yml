@@ -4,8 +4,7 @@ name: Coveralls GitHub Action
 
 
 jobs:
-  build:
-    name: Coverage
+  check:
     runs-on: ubuntu-20.04
     steps:
     - uses: actions/checkout@v1
@@ -25,8 +24,9 @@ jobs:
   # You may pin to the exact commit or the version.
   # uses: Tintef/nyc-reporter-action@ce03f0295fea4c06016b062ca6acc0ec56b94283
       uses: PoorlyDefinedBehaviour/nyc-reporter@v1
-          with: 
-            command: npm test
+          with:
+            command: "npm test"
+            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
     - name: Coveralls
       uses: coverallsapp/github-action@master
