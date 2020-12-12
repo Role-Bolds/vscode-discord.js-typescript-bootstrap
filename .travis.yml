@@ -1,9 +1,12 @@
 language: node_js
 node_js:
   - lts/*
-install: npm install
-before_script:
+install: 
+  - npm install
   - cp ./secrets/sample-config.json ./secrets/config.json
-  - npm test
-script:
-  - tsc -p ./tsconfig.json
+jobs:
+  include:
+    - script: COVERALLS_FLAG_NAME=coverage npm coverage && nyc report --reporter=text-lcov | coveralls
+    - script: tsc -p ./tsconfig.json
+notifications:
+  webhooks: https://coveralls.io/webhook

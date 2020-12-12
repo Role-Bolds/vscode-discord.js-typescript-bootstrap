@@ -1,15 +1,27 @@
-import { Context, Commands } from 'command.ts';
+import { Context, Group, Describe, Commands } from 'command.ts';
 import { config } from "../main";
+import { logger } from '../lib/logger';
+import { fileName } from '../lib/util';
 
-@Commands.Group("Help commands")
+@Group("Help")
 class Help {
 
-  @Commands.Describe({
-    aliases: ["h", "help"], prefix: "optional"
+  @Describe({
+    description: "Use these to get this list.", aliases: ["h","help"], usage: "test", defaultName:false
   })
-  help(ctx: Context) {
-    if (ctx.usedAlias === "h" || "help") {
-      ctx.send(`I can only do the following, <@${ctx.author.id}>:\n\`${config.prefix}h\`,\`${config.prefix}help\`, to display this help message.\n\nV:${config.version}`);
-    }
-  }
+  help(message: Context) {
+    if(message.usedAlias = "h" || "help"){
+    const commandsList = commandMessage(message);
+    message.send(`I can only do the following, <@${message.author.id}>:\nPrefixes: \`${config.prefix}\`\n${commandsList}\n\nV:${config.version}`);}
+  };
+}
+
+function commandMessage(ctx: Context){
+  let output = '\`h\` or \`help\`, to display this help message.';
+  return output;
+}
+
+export function commandList() {
+  const commandsStore = Commands.store;
+  logger({message:'Command List', json: commandsStore, source: `${fileName(__filename)}`})
 }

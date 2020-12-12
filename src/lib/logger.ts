@@ -18,7 +18,7 @@ export function logger(logging: loggingOptions) {
       out = getLogger(logging.source);
       break;
   }
-
+// TODO Clean up case to only change unalike properties
   switch (logging.type) {
     case "debug":
       configure({
@@ -48,7 +48,11 @@ export function logger(logging: loggingOptions) {
         },
       });
       if (logging.json !== undefined) {
-        logging.message = `${logging.message}\n${logging.json}`;
+        logging.message = `${logging.message}\n${JSON.stringify(
+          logging.json,
+          null,
+          " "
+        )}`;
       }
       return out.debug(logging.message);
     case "error":
@@ -77,7 +81,11 @@ export function logger(logging: loggingOptions) {
         },
       });
       if (logging.json !== undefined) {
-        logging.message = `${logging.message}\n${logging.json}`;
+        logging.message = `${logging.message}\n${JSON.stringify(
+          logging.json,
+          null,
+          " "
+        )}`;
       }
       return out.error(logging.message);
     case "info":
@@ -108,7 +116,11 @@ export function logger(logging: loggingOptions) {
         },
       });
       if (logging.json !== undefined) {
-        logging.message = `${logging.message}\n${logging.json}`;
+        logging.message = `${logging.message}\n${JSON.stringify(
+          logging.json,
+          null,
+          " "
+        )}`;
       }
       return out.info(logging.message);
     default:
@@ -139,7 +151,11 @@ export function logger(logging: loggingOptions) {
         },
       });
       if (logging.json !== undefined) {
-        logging.message = `${logging.message}\n${logging.json}`;
+        logging.message = `${logging.message}\n${JSON.stringify(
+          logging.json,
+          null,
+          " "
+        )}`;
       }
       return out.info(logging.message);
   }
