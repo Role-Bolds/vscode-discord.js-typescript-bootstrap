@@ -10,16 +10,16 @@ jobs:
     steps:
     - uses: actions/checkout@v1
 
-    - name: Use Node.js 10.x
+    - name: Use Node.js 14.x
       uses: actions/setup-node@v1
       with:
-        node-version: 10.x
+        node-version: 14.x
 
     - name: npm install, nyc npm test
-      run: |
-        npm install
-        cp ./secrets/sample-config.json ./secrets/config.json
-        nyc npm test
+      run:
+      -  npm install
+      -  cp ./secrets/sample-config.json ./secrets/config.json
+      -  nyc npm test
 
     - name: Coveralls
       uses: coverallsapp/github-action@master
