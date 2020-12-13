@@ -7,3 +7,6 @@ install:
 jobs:
   include:
     - script: tsc -p ./tsconfig.json
+    - script: COVERALLS_FLAG_NAME=coverage npm run coverage
+notifications:
+  webhooks: https://coveralls.io/webhook
