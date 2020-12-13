@@ -2,8 +2,7 @@ import { Config } from "./lib/config";
 import { logger } from './lib/logger';
 import { Client } from 'command.ts';
 import { join } from "path";
-import { fileName } from './lib/util';
-import { commandList } from './commands/help';
+import { commandsList, fileName } from './lib/util';
 export const config = new Config();
 
 logger({ message: "Initalizing", source: `${fileName(__filename)}` });
@@ -19,4 +18,4 @@ export const client = new Client({
 
 client.login(config.token);
 
-commandList();
+commandsList();
