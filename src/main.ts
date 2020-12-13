@@ -1,40 +1,21 @@
-import Discord = require("discord.js");
 import { Config } from "./lib/config";
-import { logger } from "./lib/logger";
-import { helpMessage } from "./lib/helpMessage";
-export const client = new Discord.Client();
+import { logger } from './lib/logger';
+import { Client } from 'command.ts';
+import { join } from "path";
+import { commandsList, fileName } from './lib/util';
 export const config = new Config();
 
-client.once("ready", () => {
-  logger({message: "Ready!", type: 'info'});
-  logger({message: `Code base: ${config.version}`, type: "debug"});
-  logger({message: `Node V: ${config.node}`});
-  logger({message: "Error test", type: 'error'});
-  logger({message: "Error test 2", type: 'error'});
-});
+logger({ message: "Initalizing", source: `${fileName(__filename)}` });
 
-client.on("message", async (message) => {
-  // Ignore messages from bot
-  if (message.author.bot) return;
-  // mention bot Help message
-  if (
-    message.mentions.has(client.user.id)
-  ) {
-    await helpMessage(message);
-  }
-  // Ignore anything else without proper prefix
-  if(!message.content.startsWith(config.prefix))return;
-  const args = message.content.slice(config.prefix.length).trim().split(/ +/);
-  const command = args.shift().toLowerCase();
-
-  switch (command) {
-    case 'h' || 'help':
-      await helpMessage(message);
-      break;
-    default:
-      await helpMessage(message);
-      break;
-  }
+export const client = new Client({
+	loadDirs: [
+		join(__dirname, "commands"),
+		join(__dirname, "events")
+	],
+  autoHandleCommands: false,
+  prefixes: config.prefix
 });
 
 client.login(config.token);
+
+commandsList();

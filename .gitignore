@@ -1,9 +1,9 @@
 .vagrant
 node_modules/
-msb-compile/
+build/
+debug/
 config.json
 *.log
 .nyc_output
 coverage
-package-lock.json
 *.cpuprofile

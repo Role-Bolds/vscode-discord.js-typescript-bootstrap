@@ -1,9 +1,14 @@
 language: node_js
 node_js:
   - lts/*
-install: npm install
-before_script:
+install: 
+  - npm install
   - cp ./secrets/sample-config.json ./secrets/config.json
-  - npm test
-script:
-  - tsc -p ./tsconfig.json
+jobs:
+  include:
+    - script: tsc -p ./tsconfig.json
+    - script: COVERALLS=coverage npm run coveralls
+  allow_failures:
+    - script: COVERALLS=coverage npm run coveralls
+notifications:
+  webhooks: https://coveralls.io/webhook
