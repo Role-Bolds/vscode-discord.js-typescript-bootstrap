@@ -43,7 +43,8 @@
   },
   "scripts": {
     "test": "mocha src/**/*.test.ts",
-    "coverage": "nyc mocha src/**/*.test.ts"
+    "coverage": "nyc mocha src/**/*.test.ts",
+    "coveralls": "npm run coverage && nyc report --reporter=text-lcov | coveralls"
   },
   "nyc": {
     "extends": "@istanbuljs/nyc-config-typescript",
