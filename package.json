@@ -16,19 +16,27 @@
     "type": "git",
     "url": ""
   },
-  "license": "",
+  "license": "MIT",
   "dependencies": {
+    "@ianwalter/requester": "^2.4.3",
+    "@typeit/discord": "^4.0.8",
     "@types/node": "^14.14.12",
-    "command.ts": "^2.1.0",
-    "discord.js": "^12.3.1",
+    "axios": "^0.21.1",
+    "discord.js": "^12.5.1",
+    "dotenv": "^8.2.0",
+    "env-var": "^7.0.0",
     "log4js": "^6.3.0",
-    "ws": "^7.4.1"
+    "nsapi": "^0.2.0",
+    "simple-oauth2": "^4.2.0"
   },
   "devDependencies": {
+    "@babel/core": "^7.12.10",
+    "@babel/preset-env": "^7.12.10",
     "@istanbuljs/nyc-config-typescript": "^1.0.1",
     "@types/chai": "^4.2.13",
     "@types/mocha": "^8.2.0",
     "@types/ws": "^7.4.0",
+    "babel-jest": "^26.6.3",
     "chai": "^4.2.0",
     "coveralls": "^3.1.0",
     "eslint": "^7.15.0",

@@ -1,12 +1,8 @@
-import { Config } from "./config";
-import { getLogger, configure } from "log4js";
+import { Config } from './Config';
+import { getLogger, configure } from 'log4js';
+import { loggingOptions } from './Types';
 
-type loggingOptions = {
-  message: string;
-  type?: "debug" | "error" | "info";
-  json?: object;
-  source?: string;
-};
+const config = new Config();
 
 export function logger(logging: loggingOptions) {
   let out;
@@ -20,19 +16,19 @@ export function logger(logging: loggingOptions) {
   }
 // TODO Clean up case to only change unalike properties
   switch (logging.type) {
-    case "debug":
+    case 'debug':
       configure({
         appenders: {
           out: {
-            type: "stdout",
+            type: 'stdout',
             layout: {
-              type: "basic",
+              type: 'basic',
             },
           },
           file: {
-            type: "dateFile",
-            filename: `./logs/chabonBot.log`,
-            pattern: ".yyyy-MM-dd",
+            type: 'dateFile',
+            filename: `./logs/${config.logName}.log`,
+            pattern: '.yyyy-MM-dd',
             maxLogSize: 10485760,
             alwaysIncludePattern: true,
             backups: 3,
@@ -42,8 +38,8 @@ export function logger(logging: loggingOptions) {
         },
         categories: {
           default: {
-            appenders: ["out", "file"],
-            level: "debug",
+            appenders: ['out', 'file'],
+            level: 'debug',
           },
         },
       });
@@ -51,17 +47,17 @@ export function logger(logging: loggingOptions) {
         logging.message = `${logging.message}\n${JSON.stringify(
           logging.json,
           null,
-          " "
+          ' '
         )}`;
       }
       return out.debug(logging.message);
-    case "error":
+    case 'error':
       configure({
         appenders: {
           file: {
-            type: "dateFile",
-            filename: `./logs/chabonBot.log`,
-            pattern: ".yyyy-MM-dd",
+            type: 'dateFile',
+            filename: `./logs/${config.logName}.log`,
+            pattern: '.yyyy-MM-dd',
             maxLogSize: 10485760,
             alwaysIncludePattern: true,
             backups: 3,
@@ -69,14 +65,14 @@ export function logger(logging: loggingOptions) {
             keepFileExt: true,
           },
           err: {
-            type: "stderr",
-            layout: { type: "basic" },
+            type: 'stderr',
+            layout: { type: 'basic' },
           },
         },
         categories: {
           default: {
-            appenders: ["file", "err"],
-            level: "error",
+            appenders: ['file', 'err'],
+            level: 'error',
           },
         },
       });
@@ -84,23 +80,23 @@ export function logger(logging: loggingOptions) {
         logging.message = `${logging.message}\n${JSON.stringify(
           logging.json,
           null,
-          " "
+          ' '
         )}`;
       }
       return out.error(logging.message);
-    case "info":
+    case 'info':
       configure({
         appenders: {
           out: {
-            type: "stdout",
+            type: 'stdout',
             layout: {
-              type: "basic",
+              type: 'basic',
             },
           },
           file: {
-            type: "dateFile",
-            filename: `./logs/chabonBot.log`,
-            pattern: ".yyyy-MM-dd",
+            type: 'dateFile',
+            filename: `./logs/${config.logName}.log`,
+            pattern: '.yyyy-MM-dd',
             maxLogSize: 10485760,
             alwaysIncludePattern: true,
             backups: 3,
@@ -110,8 +106,8 @@ export function logger(logging: loggingOptions) {
         },
         categories: {
           default: {
-            appenders: ["out", "file"],
-            level: "info",
+            appenders: ['out', 'file'],
+            level: 'info',
           },
         },
       });
@@ -119,7 +115,7 @@ export function logger(logging: loggingOptions) {
         logging.message = `${logging.message}\n${JSON.stringify(
           logging.json,
           null,
-          " "
+          ' '
         )}`;
       }
       return out.info(logging.message);
@@ -127,15 +123,15 @@ export function logger(logging: loggingOptions) {
       configure({
         appenders: {
           out: {
-            type: "stdout",
+            type: 'stdout',
             layout: {
-              type: "basic",
+              type: 'basic',
             },
           },
           file: {
-            type: "dateFile",
-            filename: `./logs/chabonBot.log`,
-            pattern: ".yyyy-MM-dd",
+            type: 'dateFile',
+            filename: `./logs/${config.logName}.log`,
+            pattern: '.yyyy-MM-dd',
             maxLogSize: 10485760,
             alwaysIncludePattern: true,
             backups: 3,
@@ -145,8 +141,8 @@ export function logger(logging: loggingOptions) {
         },
         categories: {
           default: {
-            appenders: ["out", "file"],
-            level: "info",
+            appenders: ['out', 'file'],
+            level: 'info',
           },
         },
       });
@@ -154,7 +150,7 @@ export function logger(logging: loggingOptions) {
         logging.message = `${logging.message}\n${JSON.stringify(
           logging.json,
           null,
-          " "
+          ' '
         )}`;
       }
       return out.info(logging.message);

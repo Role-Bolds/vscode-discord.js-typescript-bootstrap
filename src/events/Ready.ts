@@ -1,17 +1,19 @@
-import { Events } from "command.ts";
-import { logger } from '../lib/logger';
-import { config } from "../main";
-import { fileName } from "../lib/util";
 
-@Events.Ready
-class ReadyEvent
+import { logger } from '../lib/Logger';
+import { config } from '../Main';
+import { fileName } from '../lib/Util';
+import { On, Discord } from '@typeit/discord';
+
+@Discord()
+abstract class ReadyEvent
 {
-	logReady()
+  @On('ready')
+	private logReady()
 	{
-    logger({ message: "Client ready", source: `${fileName(__filename)}` });
+    logger({ message: 'Client ready', source: `${fileName(__filename)}` });
     logger({
       message: `Code base: ${config.version}`,
-      type: "debug",
+      type: 'debug',
       source: `${fileName(__filename)}`,
     });
     logger({
@@ -19,9 +21,9 @@ class ReadyEvent
       source: `${fileName(__filename)}`,
     });
     logger({
-      message: "Error test",
-      type: "error",
+      message: 'Error test',
+      type: 'error',
       source: `${fileName(__filename)}`,
     });
-	}
+  };
 }

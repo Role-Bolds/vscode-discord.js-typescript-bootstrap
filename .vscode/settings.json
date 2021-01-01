@@ -6,5 +6,12 @@
     "mochaExplorer.require": "ts-node/register",
     "cSpell.words": [
         "appenders"
-    ]
+    ],
+    "terminal.integrated.env.linux": {
+    },
+    "terminal.integrated.env.windows": {
+        "DISCORD_BOT_LOG_NAME": "tsbot",
+        "DISCORD_BOT_USER_TOKEN": "NzYwMzI2Nzg2NjQxOTUyNzY5.X3KbgA.cIGNQFzip4SBnJBod68rGobutOU"
+    }
+    
 }
