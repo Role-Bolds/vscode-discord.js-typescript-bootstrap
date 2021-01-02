@@ -6,11 +6,3 @@ export async function loadEnv() {
   }
   logger({message:`Parsed .env file:`,json: result.parsed ,source:'Env'});
 }
-
-/*
-{
-      path: resolve('../../secrets/','.env'),
-      encoding: 'utf-8',
-      overrideProcessEnv: false
-    }
-*/

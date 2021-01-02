@@ -1,8 +1,8 @@
-import { Config } from './Config';
 import { getLogger, configure } from 'log4js';
 import { loggingOptions } from './Types';
+import { Config } from './Config';
 
-const config = new Config();
+const logName = new Config().logName;
 
 export function logger(logging: loggingOptions) {
   let out;
@@ -27,7 +27,7 @@ export function logger(logging: loggingOptions) {
           },
           file: {
             type: 'dateFile',
-            filename: `./logs/${config.logName}.log`,
+            filename: `./logs/${logName}.log`,
             pattern: '.yyyy-MM-dd',
             maxLogSize: 10485760,
             alwaysIncludePattern: true,
@@ -56,7 +56,7 @@ export function logger(logging: loggingOptions) {
         appenders: {
           file: {
             type: 'dateFile',
-            filename: `./logs/${config.logName}.log`,
+            filename: `./logs/${logName}.log`,
             pattern: '.yyyy-MM-dd',
             maxLogSize: 10485760,
             alwaysIncludePattern: true,
@@ -95,7 +95,7 @@ export function logger(logging: loggingOptions) {
           },
           file: {
             type: 'dateFile',
-            filename: `./logs/${config.logName}.log`,
+            filename: `./logs/${logName}.log`,
             pattern: '.yyyy-MM-dd',
             maxLogSize: 10485760,
             alwaysIncludePattern: true,
@@ -130,7 +130,7 @@ export function logger(logging: loggingOptions) {
           },
           file: {
             type: 'dateFile',
-            filename: `./logs/${config.logName}.log`,
+            filename: `./logs/${logName}.log`,
             pattern: '.yyyy-MM-dd',
             maxLogSize: 10485760,
             alwaysIncludePattern: true,

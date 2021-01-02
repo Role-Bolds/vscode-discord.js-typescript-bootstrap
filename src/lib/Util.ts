@@ -22,7 +22,7 @@ export function commandsList() {
  * Make a bot token safe to print
  * @param botToken
  */
-export async function tokenSanitize(botToken: string|(Promise<string>)) {
-  const sanitize = await botToken.split('.')
+export function tokenSanitize(botToken: string) {
+  const sanitize = botToken.split('.')
   return `************************.${sanitize[1]}.***************************`
 }

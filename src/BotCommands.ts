@@ -4,7 +4,7 @@ import { join } from "path";
 @Discord("!?", {
   import: [join(__dirname, "commands", "*.js")],
 })
-export abstract class BotCommands {
+export class BotCommands {
   @CommandNotFound()
   notFoundA(command: CommandMessage) {
     command.reply("Command not found;");

@@ -13,3 +13,12 @@ export type configSettings = {
   DISCORD_BOT_PREFIX: String;
   DISCORD_BOT_USER_TOKEN: String;
 };
+
+export type envType = {
+  DISCORD_API: number,
+  DISCORD_APP_ID: number,
+  DISCORD_BOT_DEBUG: boolean,
+  DISCORD_BOT_LOG_NAME: string,
+  DISCORD_BOT_PREFIX: string,
+  DISCORD_BOT_USER_TOKEN: string,
+}
