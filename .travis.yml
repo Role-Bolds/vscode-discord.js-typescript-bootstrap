@@ -13,7 +13,6 @@ jobs:
     - script: npm run coverage
       after_script: 
         - npm run coveralls
-        - npm run nyc
         - npm run codecov
   allow_failures:
     - script: npm run test
