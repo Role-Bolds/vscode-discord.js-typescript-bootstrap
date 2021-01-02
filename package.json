@@ -22,6 +22,7 @@
     "@typeit/discord": "^4.0.8",
     "@types/node": "^14.14.12",
     "axios": "^0.21.1",
+    "codecov": "^3.8.1",
     "discord.js": "^12.5.1",
     "dotenv": "^8.2.0",
     "env-var": "^7.0.0",
@@ -53,6 +54,7 @@
     "build": "tsc -p ./tsconfig.json",
     "coverage": "nyc mocha test/**/*.test.ts",
     "coveralls": "nyc report --reporter=text-lcov | coveralls",
+    "codecov": "nyc --reporter=lcov mocha test/**/*.test.ts && codecov",
     "test": "mocha test/**/*.test.ts"
   },
   "nyc": {
