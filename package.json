@@ -54,7 +54,8 @@
     "build": "tsc -p ./tsconfig.json",
     "coverage": "nyc mocha test/**/*.test.ts",
     "coveralls": "nyc report --reporter=text-lcov | coveralls",
-    "codecov": "nyc --reporter=lcov mocha test/**/*.test.ts && codecov",
+    "nyc": "nyc --reporter=lcov mocha test/**/*.test.ts",
+    "codecov": "codecov",
     "test": "mocha test/**/*.test.ts"
   },
   "nyc": {
