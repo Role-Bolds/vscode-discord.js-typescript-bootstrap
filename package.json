@@ -52,7 +52,7 @@
   "scripts": {
     "build": "tsc -p ./tsconfig.json",
     "coverage": "nyc mocha test/**/*.test.ts",
-    "coveralls": "npm run coverage && nyc report --reporter=text-lcov | coveralls",
+    "coveralls": "nyc report --reporter=text-lcov | coveralls",
     "test": "mocha test/**/*.test.ts"
   },
   "nyc": {

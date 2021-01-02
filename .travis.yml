@@ -10,9 +10,10 @@ jobs:
   include:
     - script: npm run build
     - script: npm run test
-    - script: npm run coveralls
+    - script: npm run coverage
+      after_script: npm coveralls
   allow_failures:
-    - script: npm run coveralls
     - script: npm run test
+    - script: npm run coverage
 notifications:
   webhooks: https://coveralls.io/webhook
