@@ -1,21 +1,20 @@
-import { Context, Group, Describe, Commands } from 'command.ts';
-import { config } from "../main";
 
-@Group("Help")
-class Help {
+import { config } from "../Main";
+import { Command, CommandMessage } from "@typeit/discord";
 
-  @Describe({
-    description: "Use these to get this list.", aliases: ["h","help"], usage: "test", defaultName:false
-  })
-  help(message: Context) {
-    if(message.usedAlias === "h" || "help"){
-    const commandsList = commandMessage(message);
-    message.send(`I can only do the following, <@${message.author.id}>:\nPrefixes: \`${config.prefix}\`\n${commandsList}\n\nV:${config.version}`);}
-  };
+export class Help {
+  @Command("help")
+  help(message: CommandMessage) {
+    const respond = `I can only do the following, <@${
+      message.author.id
+    }>:\nPrefixes: \`${config.prefix}\`\n${commandMessage()}\n\nV:${
+      config.version
+    }`;
+    message.reply(respond);
+  }
 }
 
-function commandMessage(ctx: Context){
-  const output = '\`h\` or \`help\`, to display this help message.';
+function commandMessage(): string {
+  const output = "`h` or `help`, to display this help message.";
   return output;
 }
-

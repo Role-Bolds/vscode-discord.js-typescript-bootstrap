@@ -8,7 +8,9 @@
             "internalConsoleOptions": "openOnSessionStart",
             "name": "Mocha Tests",
             "program": "${workspaceFolder}/node_modules/mocha/bin/_mocha",
+            "args": ["test/**/*.test.ts"],
             "request": "launch",
+            "envFile": "${workspaceFolder}/secrets/.env",
             "skipFiles": [
                 "<node_internals>/**"
             ],
@@ -18,7 +20,9 @@
             "type": "node",
             "name": "Build bot",
             "program": "${workspaceFolder}/src/main.ts",
+            "runtimeArgs": ["--trace-warnings"],
             "request": "launch",
+            "envFile": "${workspaceFolder}/secrets/.env",
             "skipFiles": [
                 "<node_internals>/**"
             ],
@@ -32,6 +36,7 @@
             "type": "node",
             "name": "Debug bot",
             "program": "${workspaceFolder}/src/main.ts",
+            "envFile": "${workspaceFolder}/secrets/.env",
             "request": "launch",
             "skipFiles": [
                 "<node_internals>/**"
