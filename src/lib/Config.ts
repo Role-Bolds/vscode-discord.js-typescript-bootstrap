@@ -16,7 +16,7 @@ export class Config {
   public prefix: string[] = env.get("DISCORD_BOT_PREFIX").default("!?").asString().split(',');
   public token: string = env
   .get("DISCORD_BOT_USER_TOKEN")
-  .default("************************.DEFVAL.***************************")
+  .default("KVcyIMkNOTgt2OTgzAjIDOTh.DEFVAL.WuBBa1U884DuBdu8M07hAfucC45")
   .asString();
   public version: any = pkg.version;
 }

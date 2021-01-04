@@ -14,8 +14,8 @@ class Main{
 	static startBot() {
 		this._client = new Client({
 			classes: [
-				`${__dirname}/commands/*.js`,
-				`${__dirname}/events/*.js`
+				`${__dirname}/BotCommands.js`,
+				`${__dirname}/BotEvents.js`
 			],
 			variablesChar: ':'
 		});

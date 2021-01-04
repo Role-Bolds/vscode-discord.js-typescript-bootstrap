@@ -1,11 +1,14 @@
 import { config } from "../Main";
 import { request } from "https";
-let apiURL = `https://discord.com/api/v${config.apiVersion}/applications/${config.appID}/`;
 
 /**
  * Direct interaction with
  */
 export class DiscordAPI {
+  private defaultApiUrl:string = `https://discord.com/api/v${config.apiVersion}/applications/${config.appID}/`;
+  constructor() {
+    this._apiURL = this.defaultApiUrl;
+  }
   /**
    * commands
    */
@@ -17,5 +20,13 @@ export class DiscordAPI {
     const auth = {
       Authorization: config.appID,
     };
+  }
+  // tslint:disable-next-line: variable-name
+  private _apiURL: string;
+  public get apiURL(): string {
+    return this._apiURL;
+  }
+  public set apiURL(value: string) {
+    this._apiURL = value;
   }
 }

@@ -2,7 +2,7 @@
 import { config } from "../Main";
 import { Command, CommandMessage } from "@typeit/discord";
 
-class Help {
+export class Help {
   @Command("help")
   help(message: CommandMessage) {
     const respond = `I can only do the following, <@${

@@ -20,6 +20,7 @@
             "type": "node",
             "name": "Build bot",
             "program": "${workspaceFolder}/src/main.ts",
+            "runtimeArgs": ["--trace-warnings"],
             "request": "launch",
             "envFile": "${workspaceFolder}/secrets/.env",
             "skipFiles": [

@@ -1,12 +1,11 @@
-
 import { logger } from '../lib/Logger';
 import { config } from '../Main';
 import { fileName } from '../lib/Util';
-import { On, Discord } from '@typeit/discord';
+import { On } from '@typeit/discord';
 
-@Discord()
-abstract class ReadyEvent
-{
+
+
+export class Ready {
   @On('ready')
 	private logReady()
 	{
