@@ -1,12 +1,15 @@
-import { CommandMessage, CommandNotFound, Discord } from "@typeit/discord";
+import { ArgsOf, Client, CommandMessage, CommandNotFound, Discord, On } from "@typeit/discord";
 import { join } from "path";
+import { logger } from './lib/Logger';
+import { config } from './Main';
 
-@Discord("!?", {
+@Discord(config.prefix[0], {
   import: [join(__dirname, "commands", "*.js")],
 })
 export class BotCommands {
+
   @CommandNotFound()
-  notFoundA(command: CommandMessage) {
+  notFound(command: CommandMessage) {
     command.reply("Command not found;");
   }
 }

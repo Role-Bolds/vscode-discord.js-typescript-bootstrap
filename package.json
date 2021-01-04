@@ -21,14 +21,10 @@
     "@ianwalter/requester": "^2.4.3",
     "@typeit/discord": "^4.0.8",
     "@types/node": "^14.14.12",
-    "axios": "^0.21.1",
     "codecov": "^3.8.1",
     "discord.js": "^12.5.1",
-    "dotenv": "^8.2.0",
     "env-var": "^7.0.0",
-    "log4js": "^6.3.0",
-    "nsapi": "^0.2.0",
-    "simple-oauth2": "^4.2.0"
+    "log4js": "^6.3.0"
   },
   "devDependencies": {
     "@babel/core": "^7.12.10",

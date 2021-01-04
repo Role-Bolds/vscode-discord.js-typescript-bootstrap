@@ -24,5 +24,5 @@ export function commandsList() {
  */
 export function tokenSanitize(botToken: string) {
   const sanitize = botToken.split('.')
-  return `************************.${sanitize[1]}.***************************`
+  return `${sanitize[0].replace(/([^\\.!\\*\\/\\])/gi,"*")}.${sanitize[1]}.${sanitize[2].replace(/([^\\.!\\*\\/\\])/gi,"*")}`
 }
