@@ -21,10 +21,6 @@
     "@ianwalter/requester": "^2.4.3",
     "@typeit/discord": "^4.0.8",
     "@types/node": "^14.14.12",
-<<<<<<< HEAD
-=======
-    "codecov": "^3.8.1",
->>>>>>> 6d41a97bb0e62b0294c2cb837c2f6199f19f2dfa
     "discord.js": "^12.5.1",
     "env-var": "^7.0.0",
     "log4js": "^6.3.0"
