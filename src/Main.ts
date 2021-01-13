@@ -1,7 +1,7 @@
 import { Config } from './lib/Config';
 import { logger } from './lib/Logger';
 import { Client } from '@typeit/discord';
-import { fileName, tokenSanitize } from './lib/Util';
+import { tokenSanitize } from './lib/Util';
 
 export const config = new Config();
 const clientPerams = new Client({
@@ -32,7 +32,7 @@ export class Main{
 	// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 	static initializeBot() {
 		logger({ message: 'Initalizing', source: `Main` });
-		logger({message: `Current token:\n${tokenSanitize(config.token)}`, source:'Main'});
+		//logger({message: `Current token:\n${tokenSanitize(config.token)}`, source:'Main'});
 	}
 }
 
