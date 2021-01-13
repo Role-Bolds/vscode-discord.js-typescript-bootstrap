@@ -19,8 +19,7 @@
         {
             "type": "node",
             "name": "Build bot",
-            "program": "${workspaceFolder}/src/main.ts",
-            "runtimeArgs": ["--trace-warnings"],
+            "program": "${workspaceFolder}/build/Main.js",
             "request": "launch",
             "envFile": "${workspaceFolder}/secrets/.env",
             "skipFiles": [
@@ -35,7 +34,8 @@
         {
             "type": "node",
             "name": "Debug bot",
-            "program": "${workspaceFolder}/src/main.ts",
+            "program": "${workspaceFolder}/build/Main.js",
+            "runtimeArgs": ["--trace-warnings"],
             "envFile": "${workspaceFolder}/secrets/.env",
             "request": "launch",
             "skipFiles": [
@@ -44,7 +44,7 @@
             "outputCapture": "std",
             "preLaunchTask": "tsc: build - tsconfig.json",
             "outFiles": [
-                "${workspaceFolder}/debug/**/*.js"
+                "${workspaceFolder}/build/**/*.js"
             ]
         }
     ]

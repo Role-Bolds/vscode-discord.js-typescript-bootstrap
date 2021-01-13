@@ -1,4 +1,8 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
 import * as env from 'env-var';
+/**
+ * Do not convert to import, build then copies it and places under build folder with src subfolder.
+ */
 // tslint:disable-next-line: no-var-requires
 const pkg = require("../../package.json");
 export class Config {
@@ -13,10 +17,11 @@ export class Config {
   .default("tsbot")
   .asString();
   public node: string = process.version;
-  public prefix: string[] = env.get("DISCORD_BOT_PREFIX").default("!?").asString().split(',');
+  public prefix: string[] = env.get("DISCORD_BOT_PREFIX").default("!?,!tsbot").asString().split(',');
   public token: string = env
   .get("DISCORD_BOT_USER_TOKEN")
   .default("KVcyIMkNOTgt2OTgzAjIDOTh.DEFVAL.WuBBa1U884DuBdu8M07hAfucC45")
   .asString();
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   public version: any = pkg.version;
 }

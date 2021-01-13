@@ -8,10 +8,5 @@
         "DEFVAL",
         "appenders",
         "typeit"
-    ],
-    "terminal.integrated.env.linux": {
-    },
-    "terminal.integrated.env.windows": {
-    }
-    
+    ]
 }
