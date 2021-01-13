@@ -1,7 +1,7 @@
 import { Config } from './lib/Config';
 import { logger } from './lib/Logger';
 import { Client } from '@typeit/discord';
-import { fileName, tokenSanitize } from './lib/Util';
+import { tokenSanitize } from './lib/Util';
 
 export const config = new Config();
 const clientPerams = new Client({
