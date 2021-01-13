@@ -1,6 +1,6 @@
 import { logger } from '../lib/Logger';
 import { config } from '../Main';
-import { fileName } from '../lib/Util';
+import { commandsList, fileName } from '../lib/Util';
 import { On } from '@typeit/discord';
 
 
@@ -24,5 +24,6 @@ export class Ready {
       type: 'error',
       source: `${fileName(__filename)}`,
     });
-  };
+    commandsList();
+  }
 }

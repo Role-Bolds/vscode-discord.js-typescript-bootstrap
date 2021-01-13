@@ -5,7 +5,7 @@ import { request } from "https";
  * Direct interaction with
  */
 export class DiscordAPI {
-  private defaultApiUrl:string = `https://discord.com/api/v${config.apiVersion}/applications/${config.appID}/`;
+  private defaultApiUrl = `https://discord.com/api/v${config.apiVersion}/applications/${config.appID}/`;
   constructor() {
     this._apiURL = this.defaultApiUrl;
   }
