@@ -5,3 +5,4 @@ color: true
 bail: true
 check-leaks: true
 trace-warnings: true
+exit: true

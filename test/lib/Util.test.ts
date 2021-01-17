@@ -1,7 +1,10 @@
 import "mocha";
 import 'chai/register-assert';
 import { assert } from "chai";
-import { fileName, tokenSanitize } from "../../src/lib/Util";
+import { fileName, tokenSanitize } from '../../src/lib/Util';
+
+const fileNameTest = fileName(__filename);
+
 describe('-- Util.ts', () => {
   describe('fileName()', () => {
     it('exists', () => {
@@ -9,6 +12,9 @@ describe('-- Util.ts', () => {
     });
     it('is function', () => {
       assert.isFunction(fileName, 'is a function')
+    });
+    it('returns string', () => {
+      assert.isString(fileNameTest, 'returns string')
     });
   });
   describe('tokenSanitize', () => {

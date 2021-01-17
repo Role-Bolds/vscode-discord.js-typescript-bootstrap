@@ -5,18 +5,6 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "internalConsoleOptions": "openOnSessionStart",
-            "name": "Mocha Tests",
-            "program": "${workspaceFolder}/node_modules/mocha/bin/_mocha",
-            "args": ["test/**/*.test.ts"],
-            "request": "launch",
-            "envFile": "${workspaceFolder}/secrets/.env",
-            "skipFiles": [
-                "<node_internals>/**"
-            ],
-            "type": "pwa-node"
-        },
-        {
             "type": "node",
             "name": "Build bot",
             "program": "${workspaceFolder}/build/Main.js",
@@ -46,6 +34,32 @@
             "outFiles": [
                 "${workspaceFolder}/build/**/*.js"
             ]
+        },
+        {
+            "internalConsoleOptions": "openOnSessionStart",
+            "name": "Mocha Tests",
+            "program": "${workspaceFolder}/node_modules/mocha/bin/_mocha",
+            "args": ["test/**/*.test.ts"],
+            "request": "launch",
+            "envFile": "${workspaceFolder}/secrets/.env",
+            "skipFiles": [
+                "<node_internals>/**"
+            ],
+            "type": "pwa-node"
+        },
+        {
+            "name": "NPM run Coverage",
+            "request": "launch",
+            "runtimeArgs": [
+                "run",
+                "coverage"
+            ],
+            "envFile": "${workspaceFolder}/secrets/coverage.env",
+            "runtimeExecutable": "npm",
+            "skipFiles": [
+                "<node_internals>/**"
+            ],
+            "type": "pwa-node"
         }
     ]
 }
