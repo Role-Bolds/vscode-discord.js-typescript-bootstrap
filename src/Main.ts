@@ -3,6 +3,8 @@ import { logger } from './lib/Logger';
 import { Client } from '@typeit/discord';
 import { tokenSanitize } from './lib/Util';
 
+const NODE_ENV = process.env.NODE_ENV
+
 export const config = new Config();
 const clientPerams = new Client({
 	classes: [
@@ -13,28 +15,21 @@ const clientPerams = new Client({
 });
 
 export class Main{
+	static client: Client = clientPerams;
 
-	// tslint:disable-next-line: variable-name
-	private static _client: Client;
-
-	static get Client(): Client {
-		return this._client;
-	}
-
-	// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
-	static startBot() {
-		this._client = clientPerams;
+	static startBot():void {
 		logger({ message: 'Starting bot', source: `Main` });
 		logger({message: `Loading commands and events:`, source:`Main`});
-		this._client.login(`${config.token}`);
+		this.client.login(`${config.token}`);
 	}
 
-	// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
-	static initializeBot() {
+	static initializeBot():void {
 		logger({ message: 'Initalizing', source: `Main` });
-		//logger({message: `Current token:\n${tokenSanitize(config.token)}`, source:'Main'});
+		logger({message: `Current token:\n${tokenSanitize(config.token)}`, source:'Main'});
 	}
 }
-
-Main.initializeBot();
-Main.startBot();
+// Check if we're running a coverage test
+if (NODE_ENV !== "coverage") {
+	Main.initializeBot();
+	Main.startBot();
+}

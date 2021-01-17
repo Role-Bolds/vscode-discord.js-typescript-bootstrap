@@ -26,7 +26,7 @@ export function commandsList():void {
 }
 
 /**
- * Make a bot token safe to print
+ * Make a bot token safe to print on screen or on a log
  * @param botToken
  */
 export function tokenSanitize(botToken: string):string {

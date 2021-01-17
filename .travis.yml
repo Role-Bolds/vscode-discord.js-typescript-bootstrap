@@ -10,10 +10,15 @@ jobs:
   include:
     - script: npm run build
     - script: npm run test
+      before_script:
+        - export NODE_ENV=coverage
     - script: npm run coverage
+      before_script:
+        - export NODE_ENV=coverage
       after_script: 
         - npm run coveralls
         - npm run codecov
+        -
   allow_failures:
     - script: npm run test
     - script: npm run coverage

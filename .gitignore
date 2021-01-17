@@ -3,7 +3,7 @@ node_modules/
 build/
 debug/
 logs/
-.env
+*.env
 *.log
 .nyc_output
 coverage
